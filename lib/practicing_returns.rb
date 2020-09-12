@@ -1,12 +1,14 @@
 require 'pry'
 
 def hello(array)
-  i = 0
-  while i < array.length
-    yield(array[i])
-    i += 1
+  item_index = 0
+  collection = []
+  while item_index < array.length
+    collection << yield(array[item_index])
+    item_index += 1
   end
+  collection
+  puts collection
 end
 
-
-hello(["Tim", "Tom", "Jim"]) { |name| puts "Hi, #{name}" }
+hello(["Tim", "Tom", "Jim"]) { |name| "Hi, #{name}" }
